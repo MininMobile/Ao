@@ -1,0 +1,14 @@
+meta:
+	title:My Awesome Webpage:title
+:meta
+
+content:
+	#:Welcome:#
+	##:to my website:##
+
+	p:welcome to my awesome website over here we have a lot of fun activities, examples include; nothing:p
+
+	divider::
+
+	p:(c) big boy:p
+:content
