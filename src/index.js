@@ -33,16 +33,17 @@ switch (process.argv[0]) {
 					fs.writeFile(process.argv[2] ? process.argv[2] : "index.html", out, (e) => {
 						console.log(":: END COMPILE");
 
-						if (e) return console.error(e);
+						if (e) console.error(e);
 					});
 				})
 				.catch((e) => {
 					console.log(":: END COMPILE");
-					console.error("ERROR");
+					console.error(e);
 				});
 		});
 		break;
 
 	default:
 		console.log(`Invalid argument '${process.argv[0]}'`);
+		console.log("Try with '-h' or '--help'?");
 }
