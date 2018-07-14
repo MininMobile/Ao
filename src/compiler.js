@@ -17,15 +17,21 @@ class compiler {
 	}
 
 	compile(data) {
-		let result = data;
-
-		Object.keys(this.components).forEach((component) => {
-			result = replaceAll(result, `${component}::`, `<${this.components[component]}/>`);
-			result = replaceAll(result, `${component}:`, `<${this.components[component]}>`);
-			result = replaceAll(result, `:${component}`, `</${this.components[component]}>`);
+		return new Promise((e, out) => {
+			try {
+				let result = data;
+	
+				Object.keys(this.components).forEach((component) => {
+					result = replaceAll(result, `${component}::`, `<${this.components[component]}/>`);
+					result = replaceAll(result, `${component}:`, `<${this.components[component]}>`);
+					result = replaceAll(result, `:${component}`, `</${this.components[component]}>`);
+				});
+	
+				out(`<html>\n${result}\n</html>`);
+			} catch (error) {
+				e(error);
+			}
 		});
-
-		return `<html>\n${result}\n</html>`;
 	}
 }
 

@@ -22,12 +22,15 @@ switch (process.argv[0]) {
 		break;
 
 	case "-c":case "--compile":
+		console.log(":: BEGIN COMPILE")
 		fs.readFile(process.argv[1], "utf-8", (err, data) => {
 			if (err) return console.error(err);
 
 			let c = new compiler();
-			let out = c.compile(data);
-			console.log(out);
+
+			c.compile(data)
+				.then((out) => { console.log(out) })
+				.catch(console.error);
 		});
 		break;
 
