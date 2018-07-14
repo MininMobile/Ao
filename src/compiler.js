@@ -4,12 +4,12 @@ class compiler {
 			"meta": "head",
 			"content": "body",
 			"title": "title",
-			"#": "h1",
-			"##": "h2",
-			"h3": "h3",
-			"h4": "h4",
-			"h5": "h5",
 			"h6": "h6",
+			"h5": "h5",
+			"h4": "h4",
+			"h3": "h3",
+			"##": "h2",
+			"#": "h1",
 			"p": "p",
 			"break": "br",
 			"divider": "hr"
@@ -17,7 +17,15 @@ class compiler {
 	}
 
 	compile(data) {
-		return replaceAll("a b a b a", "a", "c");
+		let result = data;
+
+		Object.keys(this.components).forEach((component) => {
+			result = replaceAll(result, `${component}::`, `<${this.components[component]}/>`);
+			result = replaceAll(result, `${component}:`, `<${this.components[component]}>`);
+			result = replaceAll(result, `:${component}`, `</${this.components[component]}>`);
+		});
+
+		return `<html>\n${result}\n</html>`;
 	}
 }
 
@@ -26,7 +34,7 @@ function escapeRegExp(string) {
 }
 
 function replaceAll(string, find, replace) {
-    return string.replace(new RegExp(escapeRegExp(find), 'g'), escapeRegExp(replace));
+    return string.replace(new RegExp(escapeRegExp(find), 'g'), replace);
 }
 
 module.exports = exports = compiler;
