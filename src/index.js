@@ -26,7 +26,8 @@ switch (process.argv[0]) {
 			if (err) return console.error(err);
 
 			let c = new compiler();
-			c.compile(data);
+			let out = c.compile(data);
+			console.log(out);
 		});
 		break;
 
