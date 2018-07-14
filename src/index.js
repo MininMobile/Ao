@@ -29,8 +29,17 @@ switch (process.argv[0]) {
 			let c = new compiler();
 
 			c.compile(data)
-				.then((out) => { console.log(out) })
-				.catch(console.error);
+				.then((out) => {
+					fs.writeFile(process.argv[2] ? process.argv[2] : "index.html", out, (e) => {
+						console.log(":: END COMPILE");
+
+						if (e) return console.error(e);
+					});
+				})
+				.catch((e) => {
+					console.log(":: END COMPILE");
+					console.error("ERROR");
+				});
 		});
 		break;
 

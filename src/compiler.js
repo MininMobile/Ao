@@ -17,7 +17,7 @@ class compiler {
 	}
 
 	compile(data) {
-		return new Promise((e, out) => {
+		return new Promise((out, e) => {
 			try {
 				let result = data;
 	
