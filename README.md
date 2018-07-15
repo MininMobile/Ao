@@ -15,3 +15,18 @@ content:
 	p:yes it is:p
 :content
 ```
+compiles to
+```html
+<html>
+<head>
+	<title>Website</title>
+</head>
+
+<body>
+	<h1>Welcome to my Website</h1>
+	
+	<hr/>
+	
+	<p>yes it is</p>
+</body>
+```
