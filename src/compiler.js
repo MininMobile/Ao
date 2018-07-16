@@ -1,18 +1,21 @@
 class compiler {
 	constructor() {
 		this.components = {
-			"meta": "head",
-			"content": "body",
 			"title": "title",
+			"canvas": "canvas",
+			"break": "br",
+			"divider": "hr",
+			"_": "div",
+			"-": "span",
+			"content": "body",
+			"meta": "head",
 			"h6": "h6",
 			"h5": "h5",
 			"h4": "h4",
 			"h3": "h3",
 			"##": "h2",
 			"#": "h1",
-			"p": "p",
-			"break": "br",
-			"divider": "hr"
+			"p": "p"
 		};
 	}
 
