@@ -43,7 +43,7 @@ function escapeRegExp(string) {
 }
 
 function replaceAll(string, find, replace) {
-    return string.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+	return string.replace(new RegExp(escapeRegExp(find), 'g'), replace);
 }
 
 module.exports = exports = compiler;
